@@ -7,15 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var server = builder.Configuration["DbServer"] ?? "localhost";
-var port = builder.Configuration["DbPort"] ?? "1450";
-var user = builder.Configuration["DbUser"] ?? "SA";
-var password = builder.Configuration["Password"] ?? "123@Mudar";
-var database = builder.Configuration["Database"] ?? "LivrosDb";
+//var server = builder.Configuration["DbServer"] ?? "localhost";
+//var port = builder.Configuration["DbPort"] ?? "1450";
+//var user = builder.Configuration["DbUser"] ?? "SA";
+//var password = builder.Configuration["Password"] ?? "123@Mudar";
+//var database = builder.Configuration["Database"] ?? "LivrosDb";
 
-var connectionString = $"Server={server}, {port}; Initial Catalog={database}; User ID={user}; Password={password};";
+//var connectionString = $"Server={server}, {port}; Initial Catalog={database}; User ID={user}; Password={password};";
 
-var conexao = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connectionString));
 
